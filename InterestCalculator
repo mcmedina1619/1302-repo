@@ -1,0 +1,40 @@
+print()
+print("Interest Calculator")
+print()
+
+# input from user
+investment = float(input("Enter the investment amout (greater than 0 and less than 50000):"))
+while investment <= 0 or investment >= 50000:
+    print("Investment amount must be greater than 0, and less than 50000. Please try again.")
+    print()
+    investment = float(input("Enter the investment amout (greater than 0 and less than 50000):"))
+print()
+rate = float(input("Enter the rate of interest (greater than 0 and less than 15):"))
+while rate <= 0 or rate >= 15:
+    print("The rate of interest must be greater than 0, and less than 15. Please try again.")
+    print()
+    rate = float(input("Enter the rate of interest (greater than 0 and less than 15):"))
+print()
+years = int(input("Enter the investment duration in years (greater than 0):"))
+while years <= 0:
+    print("Duration must be greater than 0. Please try again.")
+    years = int(input("Enter the investment duration in years (greater than 0):"))
+print()
+
+# convert yearly to monthly values
+months = years * 12
+monthly_rate = rate / 12 / 100
+
+# future value
+print()
+future_value = 0
+for i in range(months):
+    future_value += investment
+    monthly_interest = future_value * monthly_rate
+    future_value += monthly_interest
+
+#result
+print(f"Future Value: {round(future_value)}")
+print()
+
+print("Completed by, Megan Medina")
