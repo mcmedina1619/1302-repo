@@ -1,0 +1,48 @@
+#Welcome Message
+print()
+print("Welcome to the Random Number Game!")
+print()
+
+
+
+#To adjust the range edit the values within the parentheses ()
+#The first number controls the lower bounds and the second controls the higher bounds
+from random import randrange
+
+play_again = "y"
+while play_again.lower() == "y":
+   
+    #rules
+    print()
+    print("Your goal is to guess the random number between 0 and 10, within 5 tries!")
+    print("==============================")
+    print()
+
+    # Generate a random number from a range of 0 to 10
+    random_number = randrange(0, 10)
+    
+    #Counters/Variables
+    guess_count = 0
+    max_guesses = 5
+    guessed_correct = False
+
+    # Loop until correct
+    while guess_count < max_guesses:
+        guess_count += 1
+        guess = int(input("Guess #" + str(guess_count) + ": Enter your next guess (0 through 10): "))
+
+        if guess == random_number: 
+            print("Congratulations! You guessed the number correctly in", guess_count, "tries.")
+            guessed_correct = True
+            break
+        else:
+            if guess_count < max_guesses:
+                print("Incorrect guess. Please try again.")
+            else:
+                print("Sorry, you ran out of tries. The number was", random_number)
+        
+    #play again
+    play_again = input("Would you like to play again? (y/n): ")
+
+print("GoodBye!")
+print("Completed By: Megan Medina")
