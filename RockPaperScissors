@@ -1,0 +1,69 @@
+
+# rock_paper_scissors.py
+# Rock, Paper, Scissors Game
+# Completed by, Megan Medina
+
+from random import randrange
+
+# Function to get the user's weapon choice
+def get_user_weapon():
+    print("\nChoose your weapon:")
+    print("1 - Rock")
+    print("2 - Paper")
+    print("3 - Scissors")
+
+    # Get and validate user input
+    while True:
+        try:
+            choice = int(input("Enter the number of your choice: "))
+            if choice in [1, 2, 3]:
+                return choice
+            else:
+                print("Invalid choice. Please enter 1, 2, or 3.")
+        except ValueError:
+            print("Invalid input. Please enter a number (1, 2, or 3).")
+
+# Function to get the opponent's weapon choice
+def get_opponent_weapon():
+    # Generate random number between 1 and 3
+    weapon = randrange(1, 4)
+    return weapon
+... 
+... # Function to determine the winner
+... def determine_winner(user_weapon, opponent_weapon):
+...     weapons = {1: "Rock", 2: "Paper", 3: "Scissors"}
+... 
+...     print(f"\nYou chose: {weapons[user_weapon]}")
+...     print(f"Opponent chose: {weapons[opponent_weapon]}")
+... 
+...     if user_weapon == opponent_weapon:
+...         print("It's a tie!")
+...     elif (user_weapon == 1 and opponent_weapon == 3) or \
+...          (user_weapon == 2 and opponent_weapon == 1) or \
+...          (user_weapon == 3 and opponent_weapon == 2):
+...         print("You win!")
+...     else:
+...         print("You lose!")
+... 
+... # Main function
+... def main():
+...     print("Welcome to Rock, Paper, Scissors!")
+... 
+...     # Initialize control variable
+...     continue_playing = "y"
+... 
+...     # Game loop
+...     while continue_playing.lower() == "y":
+...         user_weapon = get_user_weapon()
+...         opponent_weapon = get_opponent_weapon()
+...         determine_winner(user_weapon, opponent_weapon)
+... 
+...         # Ask if user wants to continue
+...         continue_playing = input("\nWould you like to play again? (y/n): ")
+... 
+...     print("\nThanks for playing!")
+...     print("Completed by, Megan Medina")
+... 
+... # Run the program
+... if __name__ == "__main__":
+...     main()
