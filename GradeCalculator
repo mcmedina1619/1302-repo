@@ -1,0 +1,87 @@
+#!/usr/bin/env python3
+
+import random
+
+grades = []
+## WELCOME ##
+def show_welcome():
+    print("Grade Calculator")
+    print('Enter the grade or -1 to stop')
+    print()
+
+## GRADE INPUT ##
+def get_grades():
+ 
+    while True: 
+        grade = input("Enter a grade (or -1 to stop): ")
+        if grade == "-1":
+            return grades
+            break
+        else:
+            grade = int(grade)
+            grades.append(grade)
+
+## REMOVE LOWEST GRADE ##
+def remove_lowest():
+    print("Removing the Lowest Grade")
+    lowest_grade = grades.index(min(grades))
+    grades.pop(lowest_grade)
+    print(grades)
+    print()
+
+## REMOVE RANDOM GRADE ##
+def remove_random():
+    print("Removing a random grade: ")
+    random_grade = random.choice(grades)
+    grades.remove(random_grade)
+    print(grades)
+    print()
+
+## EDIT GRADE ##
+def edit_grade():
+    print("Edit a grade: ")
+    for i, grade in enumerate(grades, start=1):
+        print(f"{i}. {grade}")
+        print()
+
+## SORT AND REVERSE GRADES ##
+def sort_rev():
+    print("Sorting and Reversing the list: ")
+    grades.sort()
+    grades.reverse()
+    print(grades)
+    print()
+
+## GRADE TOTAL AND AVG ##
+def total_avg(grades):
+    print("Getting grade total and average: ")
+    total = 0
+    i = 0
+    while i < len(grades):
+        total += grades[i]
+        i += 1
+    print("Total Score: ", total)
+    
+    average = round(total / len(grades))
+    print("Average Score: ", average)
+    print()
+
+## MAIN FUNCTION ##
+def main():
+    show_welcome()
+    grades= get_grades()
+    print("Grades Entered:", grades)
+    print()
+    remove_lowest()
+    remove_random()
+    edit_grade()
+    sort_rev()
+    total_avg(grades)
+
+
+if __name__ == "__main__":
+    main()
+
+print()
+print("Completed By: Megan Medina")
+
