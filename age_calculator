@@ -1,0 +1,21 @@
+#Title
+print("Age Calculator")
+print()  
+first_name = input("Enter your first name:")
+last_name = input("Enter your last name:")
+name = first_name +" " + last_name
+print (name)
+print()
+current_year = int(input("Enter the current year:"))
+birth_year = int(input("Enter your birth year:"))
+age = current_year - birth_year
+print(age)
+print()
+print("====================")
+print()
+print("Hello" , (name) \
+    + "\nYou are" , (age))
+print()  
+print(f"You will be {age + 1} in 2026")
+
+print("Completed by, Megan Medina")
