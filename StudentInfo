@@ -1,0 +1,74 @@
+#!/usr/bin/env python3
+
+def main():
+    student_info = {}
+
+    student_info["Megs"] = {
+        "ID": "001",
+        "GPA": 3.4,
+        "Credits Completed": 67,
+        "Grades": [94, 80, 72, 76]
+    }
+
+    student_info["Jim"] = {
+        "ID": "002",
+        "GPA": 3.1,
+        "Credits Completed": 97,
+        "Grades": [80, 50, 100, 98]
+    }
+
+    student_info["Sarah"] = {
+        "ID": "003",
+        "GPA": 3.6,
+        "Credits Completed": 40,
+        "Grades": [80, 98]
+    }
+
+    # full student information dictionary
+    print("=== Student Information Dictionary ===")
+    print()
+    print(student_info)
+    print()
+
+    # student names
+    print("=== Student Names ===")
+    for name in student_info:
+        print(name)
+
+    # get student information
+    print()
+    print("=== Accessing Student Information ===")
+    print()
+    print("Name\t\t\tID\tGPA\tCredits Completed\tGrades")
+
+    for name, info in student_info.items():
+        print(f"{name}\t\t\t{info['ID']}\t{info['GPA']}\t\t{info['Credits Completed']}\t\t{info['Grades']}")
+    print()
+
+    # removing a student + update dictionary
+    print("=== Removing a Student ===")
+    removed_student = student_info.pop("Sarah")
+    print(f"Removing Sarah -> {removed_student}")
+    print()
+    print("Updated Student Dictionary:")
+    print(student_info)
+    print()
+
+    #  GPA information
+    print("=== Accessing GPA Information ===")
+    for name in student_info:
+        gpa = student_info.get(name).get("GPA")
+        print(f"{name}'s GPA: {gpa}")
+    print()
+
+    # clearing the student registry
+    print("=== Clearing the Student Registry ===")
+    student_info.clear()
+    print("All students removed:", student_info)
+
+
+# Call the main function
+if __name__ == "__main__":
+    main()
+print()
+print("Completed By: Megan Medina")
